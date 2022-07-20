@@ -1,0 +1,9 @@
+.ccls-cache
+.replit
+Makefile
+main
+main-debug
+main.cpp
+main.d
+main.o
+replit.nix
