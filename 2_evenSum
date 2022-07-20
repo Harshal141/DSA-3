@@ -1,0 +1,16 @@
+// finding summ of even numbers from 0-n
+
+#include <iostream>
+using namespace std;
+
+int main() {  
+  int n,summ,runner;
+  runner = 2;
+  cin >> n;
+  while(runner <= n){
+    summ += runner;
+    runner+=2;
+  }
+  cout << summ<< endl;   
+    return 0;
+}

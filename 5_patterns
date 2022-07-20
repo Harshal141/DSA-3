@@ -1,0 +1,130 @@
+// pattern:
+// 1 
+// 2 3 
+// 3 4 5 
+// 4 5 6 7 
+// 5 6 7 8 9 
+
+#include <iostream>
+using namespace std;
+
+int main() { 
+  int n; cin >> n;
+  for(int i=1;i<=n;++i){
+    int temp = i;
+    cout << i << " ";
+    for(int j=1;j<i;j++){
+      temp++;
+      cout << temp << " ";
+    }
+    cout<< endl;
+  }
+  return 0;
+}
+
+
+// pattern:
+// A 
+// B C 
+// D E F 
+// G H I J 
+// K L M N O 
+
+#include <iostream>
+using namespace std;
+
+int main() { 
+  int n; cin >> n;
+  int counter = 65;
+  for(int i=1;i<=n;++i){
+    cout << char(counter) << " ";
+    counter++;
+    for(int j=1;j<i;j++){
+      cout << char(counter) << " ";
+      counter++;
+    }
+    cout<< endl;
+  }
+  return 0;
+}
+
+
+// pattern:
+// D 
+// C D 
+// B C D 
+// A B C D 
+
+#include <iostream>
+using namespace std;
+
+int main() { 
+  int n; cin >> n;
+  cout << char(n);
+  for(int i=0;i<n;++i){
+    for(int j = i;j >=0;--j){
+      cout << char(n+64-j) << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
+
+
+// pattern:
+//       1 
+//     1 2 1 
+//   1 2 3 2 1 
+// 1 2 3 4 3 2 1 
+
+
+#include <iostream>
+using namespace std;
+
+int main() { 
+  int n; cin >> n;
+  for(int j=0;j<n;++j){
+    for(int i=n-j;i>0;--i){
+      cout << "  ";
+    }
+    for(int i=1;i<=j;++i){
+      cout << i << " ";
+    }
+    for(int i=j+1;i>0;--i){
+      cout << i << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
+
+
+// pattern:
+// 1 2 3 4 5 5 4 3 2 1 
+// 1 2 3 4 * * 4 3 2 1 
+// 1 2 3 * * * * 3 2 1 
+// 1 2 * * * * * * 2 1 
+// 1 * * * * * * * * 1 
+
+#include <iostream>
+using namespace std;
+
+int main() { 
+  int n; cin >> n;
+  for(int i =1;i<=n;++i){
+    for(int j=1;j<=n-i+1;++j){
+      cout << j << " ";
+    }
+    for(int j=1;j<i;++j){
+      cout << "* ";
+    }
+    for(int j=i;j>1;--j){
+      cout << "* ";
+    }
+    for(int j=n-i+1;j>=1;--j){
+      cout << j << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
