@@ -1,0 +1,17 @@
+// Diffe of product and sum of individual digits of number
+
+#include <iostream>
+using namespace std;
+
+int main(){
+  int n;cin >> n;
+  int sum=0,product=1;
+  while(n!=0){
+    int temp = n%10;
+    sum+=temp;
+    product *=temp;
+    n=n/10;
+  }
+  cout << abs(sum-product);
+  return 0;
+}
