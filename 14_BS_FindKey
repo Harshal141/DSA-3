@@ -11,7 +11,7 @@ int test(int arr[], int len, int key) {
   while (min <= max) {
     if (arr[mid] == key)
       return mid;
-    if (arr[mid] < key)
+    else if (arr[mid] < key)
       min = mid + 1;
     else
       max = mid - 1;
