@@ -1,0 +1,42 @@
+// find a value which alone doesnt occur twice in array
+// a^a = 0 , a^0=a , (^ == XOR)
+
+#include <iostream>
+using namespace std;
+
+void check(int arr[],int len){
+  int fin =0;
+  for(int i=0;i<len;++i){
+    cout << fin << ' ' << arr[i] << endl;
+    fin = (fin^arr[i]) ;
+  }
+  cout << fin << endl;
+}
+
+int main() {
+  int arr[9] = {1,1,4,4,5,5,7,7,9};
+  int len = 9;
+  check(arr,len);
+  return 0;
+}
+
+// array of size n has values [1,n-1] every value occurs al least once , find
+// the value which is occuring twice.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  int arr[9] = {1, 2, 3, 4, 5, 5, 6, 7, 8};
+  int len = 9;
+  int temp = 0;
+  for (int i = 0; i < len; i++) {
+    temp = temp ^ arr[i];
+  }
+  for (int i = 1; i < len; i++) {
+    temp = temp ^ i;
+  }
+  cout << temp;
+
+  return 0;
+}

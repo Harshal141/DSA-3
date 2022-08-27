@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int a) {
+  int temp=1;
+  for (int i = 1; i <= a; ++i) {
+    temp *= i;
+  }
+  return temp;
+}
+
+int nCr(int n, int r) {
+  int a = factorial(n) / (factorial(r) * factorial(n - r));
+  return a;
+}
+
+int main() {
+  int n, r;
+  cin >> n >> r;
+  cout << nCr(n, r) << endl;
+  return 0;
+}

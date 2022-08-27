@@ -1,0 +1,23 @@
+// fin number of 1 bit sin binary rep of int a and b
+
+#include <iostream>
+using namespace std;
+
+int test(int n) {
+  int count = 0;
+  while (n != 0) {
+    if ((n & 1))
+      count++;
+    n = n >> 1;
+  }
+  return count;
+}
+
+int main() {
+  int a, b;
+  cin >> a >> b;
+  int aa = test(a);
+  int bb = test(b);
+  cout << aa+bb<<endl;
+  return 0;
+}

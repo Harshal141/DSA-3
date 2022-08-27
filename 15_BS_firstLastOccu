@@ -1,0 +1,55 @@
+// binary search to get first and last occurence of key
+
+#include <iostream>
+using namespace std;
+
+int first(int arr[], int len, int key) {
+  int min = 0, max = len - 1;
+  int ans = -1;
+  int mid = min + (max - min) / 2;
+
+  while (min <= max) {
+    if (arr[mid] == key) {
+      max = mid - 1;
+      ans = mid;
+    }
+    else if (arr[mid] < key)
+      min = mid + 1;
+    else
+      max = mid - 1;
+    mid = min + (max - min) / 2;
+  }
+  return ans;
+}
+
+int last(int arr[], int len, int key) {
+  int min = 0, max = len - 1;
+  int ans = -1;
+  int mid = min + (max - min) / 2;
+  while (min <= max) {
+    if (arr[mid] == key) {
+      min = mid + 1;
+      ans = mid;
+    }
+    else if (arr[mid] < key)
+      min = mid + 1;
+    else
+      max = mid - 1;
+    mid = min + (max - min) / 2;
+  }
+  
+  return ans;
+}
+
+int main() {
+
+  int arr[9] = {1, 3, 3, 3, 5, 5, 7, 8, 9};
+  int len = 9;
+  int key = 3;
+
+  cout << first(arr, len, key) << endl;
+  
+  cout << last(arr, len, key) << endl;
+
+  return 0;
+}
