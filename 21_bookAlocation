@@ -1,0 +1,37 @@
+// https://www.codingninjas.com/codestudio/problems/allocate-books_1090540?leftPanelTab=0
+
+
+bool test(vector<int> arr, int n, int m,int mid){
+    int fin =0,stud=1;
+    for(int i=0;i<n;++i){
+        if(fin+arr[i] <=mid)fin+=arr[i];
+        else{
+           stud++;
+            if(stud > m || arr[i] > mid){
+                return false;
+            }
+            fin = arr[i];
+        }
+    }
+    return true;
+}
+
+int allocateBooks(vector<int> arr, int n, int m) {
+    int sum =0;
+    for(int i=0;i<n;++i){
+        sum+=arr[i];
+    }
+    int ans = -1;
+    int s=0,e=sum;
+    int mid = s+(e-s)/2;
+    while(s<=e){
+        if(test(arr,n,m,mid)){
+            ans = mid;
+            e= mid-1;
+        }
+        else
+            s = mid+1;
+        mid = s+ (e-s)/2;
+    }
+    return ans;
+}

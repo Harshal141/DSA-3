@@ -1,0 +1,41 @@
+// question https://www.codingninjas.com/codestudio/problems/search-in-rotated-sorted-array_1082554?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2&leftPanelTab=1
+
+// pivot code
+int pivot(vector<int>& arr, int n){
+    int s=0,e=n-1;
+    int mid = s+(e-s)/2;
+    while(s<e){
+        if(arr[mid] >= arr[0])s=mid+1;
+        else e = mid;
+        mid = s+(e-s)/2;
+    }
+    return s;
+}
+
+// binary search
+int test(vector<int>& arr,int inn, int len, int key) {
+  int min = inn;
+  int max = len - 1;
+  int mid = min + (max - min) / 2;
+  while (min <= max) {
+    if (arr[mid] == key)
+      return mid;
+    else if (arr[mid] < key)
+      min = mid + 1;
+    else
+      max = mid - 1;
+    mid = min + (max - min) / 2;
+  }
+  return -1;
+}
+
+//main 
+int findPosition(vector<int>& arr, int n, int k)
+{
+    int piv =  pivot(arr,n);
+    if(k >= arr[piv] && k<=arr[n-1]){
+        return test(arr,piv,n,k);
+    }
+    else return test(arr,0,piv,k);
+}
+

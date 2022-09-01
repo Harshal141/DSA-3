@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+int test(int n){
+  int s=0,e=n;
+        // so mid*mid doesnt overflow: long long int
+        long long int mid = s+(e-s)/2;
+        int ans =-1;
+        while(s<=e){
+            if(mid*mid == n)return mid;
+            if(mid*mid > n)e=mid-1;
+            else {
+                ans = mid;
+                s=mid+1;
+            }
+            mid = s+(e-s)/2;
+        }
+        return ans;
+}
+
+float precise(int n,int p,int ans){
+  float a = ans,fin = ans;
+  float pr = 1;
+  for(int i=1;i<=p;++i){
+    fin = a;
+    pr = pr/10;
+    while(fin*fin < n){
+      a = fin;
+      fin+=pr;
+    }
+  }
+  return a;
+}
+
+int main(){
+  int n = 8;
+  int a = test(n); 
+  // n is the input 3 is the precision
+  cout << precise(n,3,a);
+  return 0;
+}
