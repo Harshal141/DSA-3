@@ -1,0 +1,46 @@
+class Solution {
+private:
+bool compare(int a[26],int b[26]){
+    for(int i=0;i<26;i++){
+        if(a[i]!=b[i])return 0;
+    }
+    return 1;
+}
+public:
+    bool checkInclusion(string s1, string s2) {
+        if(s1.length()>s2.length())return 0;
+        int count1[26] = {0};
+        int count2[26] = {0};
+
+        // count s1 char freq
+        for(int i=0;i < s1.length();i++){
+            // find index
+            int index = s1[i] - 'a';
+            count1[index]++;
+        }
+        // check if true first window
+        int i;
+        for(i=0;i<s1.length();i++){
+            int index = s2[i] - 'a';
+            count2[index]++;
+        }
+        // compare first
+        if(compare(count1,count2))
+            return 1;
+
+        // window shift
+        while(i < s2.length()){
+            //add count
+            count2[s2[i]-'a']++;
+            //remove old
+            count2[s2[i-s1.length()] - 'a']--;
+
+            if(compare(count1,count2))
+                return 1;
+            i++;
+        }
+
+        return 0;
+
+    }
+};
